@@ -14,8 +14,7 @@ public class DiApplication {
     public static void main(String[] args) {
         ConfigurableApplicationContext ctx = SpringApplication.run(DiApplication.class, args);
         MyController myController = (MyController) ctx.getBean("myController");
-        String result = myController.sayHello();
-        System.out.println(result);
+        System.out.println(myController.sayHello());
 
         System.out.println("\n--- Property ---");
         PropertyInjectedController propertyInjectedController = (PropertyInjectedController) ctx.getBean("propertyInjectedController");

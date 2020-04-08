@@ -3,9 +3,10 @@ package com.evleeena.di.services;
 import org.springframework.stereotype.Service;
 
 @Service
-public class GreetingServiceImpl implements GreetingService {
+public class ConstructorInjectedGreetingService implements GreetingService {
+
     @Override
     public String sayGreeting() {
-        return "Hello World!";
+        return "Hello from Constructor DI";
     }
 }

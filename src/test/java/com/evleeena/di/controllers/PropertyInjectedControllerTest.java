@@ -1,6 +1,6 @@
 package com.evleeena.di.controllers;
 
-import com.evleeena.di.services.GreetingServiceImpl;
+import com.evleeena.di.services.PrimaryGreetingService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -11,7 +11,7 @@ class PropertyInjectedControllerTest {
     @BeforeEach
     void setUp() {
         propertyInjectedController = new PropertyInjectedController();
-        propertyInjectedController.greetingService = new GreetingServiceImpl();
+        propertyInjectedController.greetingService = new PrimaryGreetingService();
     }
 
     @Test
