@@ -1,5 +1,6 @@
 package com.evleeena.di.controllers;
 
+import com.evleeena.di.services.GreetingRepositoryImpl;
 import com.evleeena.di.services.PrimaryGreetingService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -11,7 +12,7 @@ class SetterInjectedControllerTest {
     @BeforeEach
     void setUp() {
         setterInjectedController = new SetterInjectedController();
-        setterInjectedController.setGreetingService(new PrimaryGreetingService());
+        setterInjectedController.setGreetingService(new PrimaryGreetingService(new GreetingRepositoryImpl()));
     }
 
     @Test
