@@ -2,6 +2,7 @@ package com.evleeena.di;
 
 import com.evleeena.di.controllers.*;
 import com.evleeena.di.examplebeans.FakeDataSource;
+import com.evleeena.di.examplebeans.FakeJmsBroker;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ConfigurableApplicationContext;
@@ -34,6 +35,9 @@ public class DiApplication {
 
         FakeDataSource fakeDataSource = (FakeDataSource) ctx.getBean("fakeDataSource");
         System.out.println("fakeDataSource: " + fakeDataSource);
+
+        FakeJmsBroker fakeJmsBroker = ctx.getBean(FakeJmsBroker.class);
+        System.out.println("fakeJmsBroker: " + fakeJmsBroker);
     }
 
 }
