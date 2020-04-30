@@ -1,6 +1,7 @@
 package com.evleeena.di;
 
 import com.evleeena.di.controllers.*;
+import com.evleeena.di.examplebeans.FakeDataSource;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ConfigurableApplicationContext;
@@ -28,6 +29,11 @@ public class DiApplication {
         System.out.println("\n--- Constructor ---");
         ConstructorInjectedController constructorInjectedController = (ConstructorInjectedController) ctx.getBean("constructorInjectedController");
         System.out.println(constructorInjectedController.getGreeting());
+
+        System.out.println("-----------------Test property file-----------------------");
+
+        FakeDataSource fakeDataSource = (FakeDataSource) ctx.getBean("fakeDataSource");
+        System.out.println("fakeDataSource: " + fakeDataSource);
     }
 
 }
