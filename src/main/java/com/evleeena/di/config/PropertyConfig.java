@@ -13,7 +13,6 @@ import javax.annotation.Resource;
 
 @Configuration
 @PropertySources({
-        @PropertySource("classpath:datasource.properties"),
         @PropertySource("classpath:jms.properties")
 })
 public class PropertyConfig {
@@ -31,13 +30,10 @@ public class PropertyConfig {
     @Value("${guru.jms.url}")
     private String jmsUrl;
 
-    @Resource
-    private Environment environment;
-
     @Bean
     public FakeDataSource fakeDataSource() {
         FakeDataSource fakeDataSource = new FakeDataSource();
-        fakeDataSource.setUser(environment.getProperty("user"));
+        fakeDataSource.setUser(user);
         fakeDataSource.setPassword(password);
         fakeDataSource.setUrl(url);
 
