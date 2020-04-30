@@ -5,6 +5,9 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
+import org.springframework.core.env.Environment;
+
+import javax.annotation.Resource;
 
 @Configuration
 @PropertySource("classpath:datasource.properties")
@@ -16,10 +19,13 @@ public class PropertyConfig {
     @Value("${guru.url}")
     private String url;
 
+    @Resource
+    private Environment environment;
+
     @Bean
     public FakeDataSource fakeDataSource() {
         FakeDataSource fakeDataSource = new FakeDataSource();
-        fakeDataSource.setUser(user);
+        fakeDataSource.setUser(environment.getProperty("user"));
         fakeDataSource.setPassword(password);
         fakeDataSource.setUrl(url);
 
